@@ -9,8 +9,10 @@ import org.littleshoot.proxy.mitm.Authority;
 import org.littleshoot.proxy.mitm.CertificateSniffingMitmManager;
 import org.littleshoot.proxy.mitm.RootCertificateException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import java.io.File;
 
@@ -60,6 +62,7 @@ public class ProxyConfiguration {
     }
 
     @Bean
+    @Scope(BeanDefinition.SCOPE_SINGLETON)
     public HttpProxyServer httpProxyServer(HttpProxyServerBootstrap httpProxyServerBootstrap) {
         return httpProxyServerBootstrap.start();
     }
