@@ -7,4 +7,8 @@ You need to run the server to generate the certificates to debug HTTPS traffic. 
 
 ## Importing into Java Keystore
 ### OS X and Linux
-The Keystore tool should already be located in your path. From the terminal, all you need to do is use the `keytool` command. On OSX the default `cacerts` file can be found with this command `$(/usr/libexec/java_home)/jre/lib/security/cacerts` and on linux `$(readlink -f /usr/bin/java | sed "s:bin/java::")lib/security/cacerts`. You can run the shellscript `import-to-keystore.sh`. The commands to find the cacerts file were found [here](https://stackoverflow.com/a/11937940/1478636).
+The keystore tool should already be located in your path. From the terminal, all you need to do is use the `keytool` command. On OSX the default `cacerts` file can be found with this command `$(/usr/libexec/java_home)/jre/lib/security/cacerts` and on linux `$(readlink -f /usr/bin/java | sed "s:bin/java::")lib/security/cacerts`. You can run the shellscript `import-to-keystore.sh`. The commands to find the cacerts file were found [here](https://stackoverflow.com/a/11937940/1478636).
+### Windows
+The keystore tool should be in your path as well, however, locating your `cacerts` file might be a little more tricky. Microsoft has some documentation about how to find your cacerts file: [here](https://docs.microsoft.com/en-us/azure/java-add-certificate-ca-store).
+### REGARDLESS OF OS
+When you start the proxy, we'll try to locate your `cacerts` file. If we can find it, we'll print out the command you need to run to console.
