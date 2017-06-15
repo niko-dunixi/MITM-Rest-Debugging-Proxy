@@ -55,10 +55,8 @@ public class ConsoleLoggingHttpFilterSourceAdapter extends HttpFiltersSourceAdap
                 if (httpObject instanceof HttpResponse) {
                     HttpResponse response = (HttpResponse) httpObject;
                     System.out.println("SERVER RESPONSE");
-                    System.out.println("-- Status: " + response.getStatus());
-                    response.headers().forEach(entry -> {
-                        System.out.println("-- " + entry.getKey() + ":" + entry.getValue());
-                    });
+                    System.out.println("-- Status: " + response.status());
+                    response.headers().forEach(entry -> System.out.println("-- " + entry.getKey() + ":" + entry.getValue()));
                 } else if (httpObject instanceof LastHttpContent) {
                     LastHttpContent response = (LastHttpContent) httpObject;
                     ByteBuf content = response.content();
