@@ -1,4 +1,4 @@
-package wtf.paulbaker.utils;
+package io.paulbaker.mitm;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

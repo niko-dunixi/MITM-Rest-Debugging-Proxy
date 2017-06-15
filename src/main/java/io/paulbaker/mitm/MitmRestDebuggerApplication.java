@@ -1,4 +1,4 @@
-package wtf.paulbaker.utils;
+package io.paulbaker.mitm;
 
 import lombok.extern.log4j.Log4j;
 import org.springframework.boot.CommandLineRunner;

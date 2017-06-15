@@ -1,4 +1,4 @@
-package wtf.paulbaker.utils;
+package io.paulbaker.mitm;
 
 import org.littleshoot.proxy.HttpFiltersSourceAdapter;
 import org.littleshoot.proxy.HttpProxyServer;

@@ -1,4 +1,4 @@
-package wtf.paulbaker.utils;
+package io.paulbaker.mitm;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
