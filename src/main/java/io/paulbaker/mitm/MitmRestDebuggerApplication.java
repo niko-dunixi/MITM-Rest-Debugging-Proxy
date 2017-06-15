@@ -34,5 +34,6 @@ public class MitmRestDebuggerApplication implements CommandLineRunner {
             log.info("I cannot find your default cacerts file. You'll need to located it manually, and then run:");
             log.info("keytool -import -alias \"" + alias + "\" -keystore \"path to your cacerts file\" -file \"" + pemFile + "\"");
         }
+        log.info("NOTE: The default password to cacerts is \"changeit\".");
     }
 }
