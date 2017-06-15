@@ -1,5 +1,6 @@
 package io.paulbaker.mitm;
 
+import lombok.extern.log4j.Log4j;
 import org.littleshoot.proxy.HttpFiltersSourceAdapter;
 import org.littleshoot.proxy.HttpProxyServer;
 import org.littleshoot.proxy.HttpProxyServerBootstrap;
@@ -16,6 +17,7 @@ import java.io.File;
 /**
  * Created by paul.baker on 6/13/17.
  */
+@Log4j
 @Configuration
 public class ProxyConfiguration {
 
@@ -27,6 +29,7 @@ public class ProxyConfiguration {
         proxyProperties.setKeystoreDirectory(sanitizedDirectory);
         File keystoreDirectoryFile = new File(sanitizedDirectory);
         keystoreDirectoryFile.mkdirs();
+        log.info("Using keystore: " + keystoreDirectoryFile);
         return keystoreDirectoryFile;
     }
 
