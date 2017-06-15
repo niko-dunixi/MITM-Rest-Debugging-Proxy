@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 /**
  * Created by paul.baker on 6/15/17.
  */
@@ -21,4 +23,9 @@ public class ProxyProperties {
     private String organizationalUnitName;
     private String certificateOrganization;
     private String certificateOrganizationUnitName;
+
+    @PostConstruct
+    public void initialize() {
+        setKeystoreDirectory(getKeystoreDirectory().replaceAll("~", System.getProperty("user.home")));
+    }
 }

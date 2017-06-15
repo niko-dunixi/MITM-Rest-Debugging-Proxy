@@ -25,11 +25,12 @@ public class ProxyConfiguration {
     private ProxyProperties proxyProperties;
 
     private File getKeystoreDirectory() {
-        String sanitizedDirectory = proxyProperties.getKeystoreDirectory().replaceAll("~", System.getProperty("user.home"));
-        proxyProperties.setKeystoreDirectory(sanitizedDirectory);
-        File keystoreDirectoryFile = new File(sanitizedDirectory);
-        keystoreDirectoryFile.mkdirs();
-        log.info("Using keystore: " + keystoreDirectoryFile);
+        File keystoreDirectoryFile = new File(proxyProperties.getKeystoreDirectory());
+        if (keystoreDirectoryFile.mkdirs() || keystoreDirectoryFile.exists()) {
+            log.info("Using keystore: " + keystoreDirectoryFile);
+        } else {
+            log.error("Couldn't create directory for keystore: " + keystoreDirectoryFile);
+        }
         return keystoreDirectoryFile;
     }
 
