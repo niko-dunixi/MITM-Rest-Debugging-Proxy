@@ -61,7 +61,7 @@ public class ProxyConfiguration {
                 .withFiltersSource(httpFiltersSourceAdapter);
     }
 
-    @Bean
+    @Bean(destroyMethod = "stop")
     @Scope(BeanDefinition.SCOPE_SINGLETON)
     public HttpProxyServer httpProxyServer(HttpProxyServerBootstrap httpProxyServerBootstrap) {
         return httpProxyServerBootstrap.start();
